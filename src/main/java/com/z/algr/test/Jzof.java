@@ -8,14 +8,14 @@ public class Jzof {
         int[] param = {1, 1, 2, 3};
         System.out.println(findRepeatNumber(param));
     }
+
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dum = new ListNode(), cur = dum;
-        while(l1 != null && l2 != null) {
-            if(l1.val < l2.val) {
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
                 cur.next = l1;
                 l1 = l1.next;
-            }
-            else {
+            } else {
                 cur.next = l2;
                 l2 = l2.next;
             }
@@ -24,6 +24,7 @@ public class Jzof {
         cur.next = l1 != null ? l1 : l2;
         return dum.next;
     }
+
     public int search(int[] nums, int target) {
         int pivot, left = 0, right = nums.length - 1;
         while (left <= right) {
@@ -34,6 +35,7 @@ public class Jzof {
         }
         return -1;
     }
+
     public int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
@@ -43,6 +45,7 @@ public class Jzof {
             return Math.max(leftHeight, rightHeight) + 1;
         }
     }
+
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return null;
@@ -53,22 +56,23 @@ public class Jzof {
         root.right = left;
         return root;
     }
+
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> externalList = new ArrayList<List<Integer>>();
-        for(int i = 0;i < numRows;i++){
+        for (int i = 0; i < numRows; i++) {
             List<Integer> internalList = new ArrayList<Integer>();
-            for(int j = 0;j <= i;j++){
-                if(j == 0 || j == i){
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i) {
                     internalList.add(1);
-                }
-                else{
-                    internalList.add(externalList.get(i-1).get(j-1)+externalList.get(i-1).get(j));
+                } else {
+                    internalList.add(externalList.get(i - 1).get(j - 1) + externalList.get(i - 1).get(j));
                 }
             }
             externalList.add(internalList);
         }
         return externalList;
     }
+
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null)
             return head;
@@ -81,8 +85,9 @@ public class Jzof {
         }
         return newHead;
     }
+
     public ListNode swapPairs(ListNode head) {
-        if(head == null || head.next == null){
+        if (head == null || head.next == null) {
             return head;
         }
         ListNode nxt = head.next;
@@ -106,11 +111,12 @@ public class Jzof {
         return -1;
     }
 
-    class ListNode{
+    class ListNode {
         int val;
         ListNode next;
     }
-    class TreeNode{
+
+    class TreeNode {
         TreeNode left;
         TreeNode right;
     }
